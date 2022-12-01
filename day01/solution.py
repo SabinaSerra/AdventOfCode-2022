@@ -6,11 +6,12 @@ def read_input(file_name):
     with open(file_name) as f:
         curr_vals = []
         for row in f:
-            if row == '\n':
+            row = row.strip()
+            if row == '':
                 input_vals.append(curr_vals)
                 curr_vals = []
             else:
-                curr_vals.append(int(row.strip()))
+                curr_vals.append(int(row))
     return [sum(cals) for cals in input_vals]
 
 def solve_part2(input_vals):
